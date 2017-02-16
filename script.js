@@ -105,18 +105,42 @@ $(document).ready(function(){
        })
    
    //equal btn function
+   var checkAC = 0;
    $equalBtn.click(function(){
        var equation = $divTop.html();
        var answer = eval(equation);
        $divBot.html(answer);
        $divTop.append("=").append(answer);
+       //9:16
+       checkAC = 0; //reset checkAC everytime equal is clicked
+       $AC.click(function(){
+           checkAC ++;
+       })
+       //
        $operator.one("click",function(){
-           if($(this).is("#multiply")){
-               $divTop.html(answer+"*");
-           }else{
-               $divTop.html(answer + this.innerHTML);
+           if(checkAC == 0){ // if AC is not clicked right before
+               if($(this).is("#multiply")){
+                   $divTop.html(answer+"*");
+               }else{
+                   $divTop.html(answer + this.innerHTML);
+               }
            }
        })
+       
+       
+       
+           /*$operator.click(function(){
+               alert(checkAC);
+           })*/
+        
+        /*   $operator.one("click",function(){
+               if($(this).is("#multiply")){
+                   $divTop.html(answer+"*");
+               }else{
+                   $divTop.html(answer + this.innerHTML);
+               }
+           }) */
+       
        
    })
    
