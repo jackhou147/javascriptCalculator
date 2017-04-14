@@ -1,3 +1,7 @@
+body{
+    background-image: url(gradient-background.jpg)
+}
+
 #calculator {
     width: 300px;
     height: 350px;
